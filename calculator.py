@@ -3,64 +3,50 @@ import calcFunctions as calc
 
 def main():
     parser = argparse.ArgumentParser(description="Calculator CLI")
-    parser.add_argument("--add", type=int, nargs='+', help="Addition function.")
-    parser.add_argument("--sub", type=int, nargs='+', help="Subtraction function.")
-    parser.add_argument("--mul", type=int, nargs='+', help="Multiplication function.")
-    parser.add_argument("--div", type=int, nargs='+', help="Division function.")
-    parser.add_argument("--sqrt", type=int, help="Square Root function. Takes only 1 argument.")
-    parser.add_argument("--cbrt", type=int, help="Cube Root function. Takes only 1 argument.")
-    parser.add_argument("--pow", type=int, nargs='+', help="Power function. Takes only 2 arguments.")
-    parser.add_argument("--avg", type=int, nargs='+', help="Average of numbers function.")
-    parser.add_argument("--abs", type=int, nargs='+', help="Absolute value function.")
-    parser.add_argument("--sin", type=float, help="Sine function. Takes only 1 argument.")
-    parser.add_argument("--cos", type=float, help="Cosine function. Takes only 1 argument.")
-    parser.add_argument("--tan", type=float, help="Tangent function. Takes only 1 argument.")
-    parser.add_argument("--asin", type=float, help="ASIN function. Takes only 1 argument.")
-    parser.add_argument("--acos", type=float, help="ACOS function. Takes only 1 argument.")
-    parser.add_argument("--atan", type=float, help="ATAN function. Takes only 1 argument.")
-    parser.add_argument("--log", type=int, nargs='+', help="Logarithmic function. Takes 2 arguments. (Num and Base)")
-    parser.add_argument("--loge", type=int, help="Logarithmic function. Takes 1 argument")
-    parser.add_argument("--log10", type=int, help="Logarithmic with base 10 function. Takes 1 argument")
 
-    args = parser.parse_args()
+    funcs = {
+        #arg: description
+        "add": "Addition function.",
+        "sub": "Subtraction function.",
+        "mul": "Multiplication function.",
+        "div": "Division function.",
+        "sqrt": "Square Root function. Takes 1 argument.",
+        "cbrt": "Cube Root function. Takes 1 argument.",
+        "pow": "Power function. Takes 2 arguments.",
+        "avg": "Average of numbers function.",
+        "abs": "Absolute value function.",
+        "sin": "Sine function. Takes 1 argument.",
+        "cos": "Cosine function. Takes 1 argument.",
+        "tan": "Tangent function. Takes 1 argument.",
+        "asin": "ASIN function. Takes 1 argument.",
+        "acos": "ACOS function. Takes 1 argument.",
+        "atan": "ATAN function. Takes 1 argument.",
+        "log": "Logarithmic function. Takes 2 arguments. (Num and Base)",
+        "loge": "Logarithmic function. Takes 1 argument",
+        "log10": "Logarithmic function with base 10 default. Takes 1 argument"
+    }
 
-    if args.add is not None:
-        calc.add(args.add)
-    if args.sub is not None:
-        calc.sub(args.sub)
-    if args.mul is not None:
-        calc.mul(args.mul)
-    if args.div is not None:
-        calc.div(args.div)
-    if args.sqrt is not None:
-        calc.sqrt(args.sqrt)
-    if args.cbrt is not None:
-        calc.cbrt(args.cbrt)
-    if args.pow is not None:
-        calc.pow(args.pow)
-    if args.avg is not None:
-        calc.avg(args.avg)
-    if args.abs is not None:
-        calc.abs(args.abs)
-    if args.sin is not None:
-        calc.sin(args.sin)
-    if args.asin is not None:
-        calc.asin(args.asin)
-    if args.cos is not None:
-        calc.cos(args.cos)
-    if args.acos is not None:
-        calc.acos(args.acos)
-    if args.tan is not None:
-        calc.tan(args.tan)
-    if args.atan is not None:
-        calc.atan(args.atan)
-    if args.log is not None:
-        calc.log(args.log)
-    if args.loge is not None:
-        calc.loge(args.loge)
-    if args.log10 is not None:
-        calc.log10(args.log10)
+    for key, value in funcs.items():
+        parser.add_argument("--" + key, type=float, nargs='+', help=value)
+        
+    args = parser.parse_args() 
+
+    argDict = {
+        calc.add:args.add, calc.sub:args.sub, calc.mul:args.mul, calc.div:args.div, calc.sqrt:args.sqrt, calc.cbrt:args.cbrt,
+        calc.pow:args.pow, calc.avg:args.avg, calc.abs:args.abs, calc.sin:args.sin, calc.asin:args.asin, calc.cos:args.cos,
+        calc.acos:args.acos, calc.tan:args.tan, calc.atan:args.atan, calc.log:args.log, calc.loge:args.loge, calc.log10:args.log10
+    }
+
+    for key, value in argDict.items():
+        if value is not None:
+            res = key(value)
+            if res - int(res) == 0:
+                print(int(res))
+            else:
+                print(res)
         
         
 if __name__ == "__main__":
+    if not sys.argv[1:]:
+        print("Usage: python {} -h (--help)".format(sys.argv[0]))
     main()
