@@ -25,41 +25,41 @@ def main():
     args = parser.parse_args()
 
     if args.add is not None:
-        print(calc.add(args.add))
+        calc.add(args.add)
     if args.sub is not None:
-        print(calc.sub(args.sub))
+        calc.sub(args.sub)
     if args.mul is not None:
-        print(calc.mul(args.mul))
+        calc.mul(args.mul)
     if args.div is not None:
-        print(calc.div(args.div))
+        calc.div(args.div)
     if args.sqrt is not None:
-        print(calc.sqrt(args.sqrt))
+        calc.sqrt(args.sqrt)
     if args.cbrt is not None:
-        print(calc.cbrt(args.cbrt))
+        calc.cbrt(args.cbrt)
     if args.pow is not None:
-        print(calc.pow(args.pow))
+        calc.pow(args.pow)
     if args.avg is not None:
-        print(calc.avg(args.avg))
+        calc.avg(args.avg)
     if args.abs is not None:
-        print(calc.abs(args.abs))
+        calc.abs(args.abs)
     if args.sin is not None:
-        print(calc.sin(args.sin))
+        calc.sin(args.sin)
     if args.asin is not None:
-        print(calc.asin(args.asin))
+        calc.asin(args.asin)
     if args.cos is not None:
-        print(calc.cos(args.cos))
+        calc.cos(args.cos)
     if args.acos is not None:
-        print(calc.acos(args.acos))
+        calc.acos(args.acos)
     if args.tan is not None:
-        print(calc.tan(args.tan))
+        calc.tan(args.tan)
     if args.atan is not None:
-        print(calc.atan(args.atan))
+        calc.atan(args.atan)
     if args.log is not None:
-        print(calc.log(args.log))
+        calc.log(args.log)
     if args.loge is not None:
-        print(calc.loge(args.loge))
+        calc.loge(args.loge)
     if args.log10 is not None:
-        print(calc.log10(args.log10))
+        calc.log10(args.log10)
         
         
 if __name__ == "__main__":
