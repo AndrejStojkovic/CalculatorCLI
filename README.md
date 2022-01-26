@@ -25,6 +25,6 @@ List of commands for the CalculatorCLI:
 --acos ACOS [ACOS ...]    ACOS function. Takes 1 argument.
 --atan ATAN [ATAN ...]    ATAN function. Takes 1 argument.
 --log LOG [LOG ...]       Logarithmic function. Takes 2 arguments. (Num and Base)
---loge LOGE [LOGE ...]    Logarithmic function. Takes 1 argument
+--loge LOGE [LOGE ...]    Logarithmic function with base 'e'. Takes 1 argument
 --log10 LOG10 [LOG10 ...] Logarithmic function with base 10 default. Takes 1 argument
 ```
