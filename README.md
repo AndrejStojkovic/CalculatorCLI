@@ -7,4 +7,6 @@ A CLI (Command Line Interface) based Calculator made in Python.
 
 ## Usage
 For list of commands:
-```python calculator.py -h```
+```
+python calculator.py -h
+```
