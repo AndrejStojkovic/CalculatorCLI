@@ -6,7 +6,7 @@ A CLI (Command Line Interface) based Calculator made in Python.
 - No additional dependencies required
 
 ## Usage
-List of commands from the CalculatorCLI:
+List of commands for the CalculatorCLI:
 ```
 -h, --help           show this help message and exit
 --add ADD [ADD ...]  Addition function.
