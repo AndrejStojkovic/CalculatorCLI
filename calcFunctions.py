@@ -23,6 +23,8 @@ def div(nums):
     r = nums[0]
     nums.pop(0)
     for num in nums:
+        if num == 0:
+            return "Cannot divide by 0"
         r = r / num
     return r
 
